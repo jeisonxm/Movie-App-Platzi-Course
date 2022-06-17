@@ -110,6 +110,8 @@ a{
 }
 img{
   border-radius: 5px;
+  width: 150px;
+  height: 225px;
 }
 /** HEADER STYLES */
 .header-arrow{
@@ -197,7 +199,10 @@ margin-bottom: 25px;
 }
 .trending-content-images{
   scroll-snap-align: center;
-
+  cursor: pointer;
+}
+.trending-content-images:hover{
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 /** ENDING OF TRENDING STYLES */
 
