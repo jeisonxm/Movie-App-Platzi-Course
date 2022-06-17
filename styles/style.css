@@ -1,3 +1,244 @@
-html{
-background-color: red;
+:root{
+  --text-color:#3E0F64;
+  --main-purple: #5C218A;
+  --purple-soft: #EEEAF2;
+  --action-color:#EECC75 ;
+  --romance-color:#F09D9D;
+  --adventure-color:#CAD297;
+  --musical-color:#B7EAC5;
+  --comedy-color: #A2EEE5;
+  --drama-color:#8EA2EA;
 }
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+*::-webkit-scrollbar{
+  background-color: var(--purple-soft);
+  width: 0;
+  visibility: hidden;
+  border-radius: 50px;
+
+}
+*::-webkit-scrollbar-thumb{
+  background-color: var(--text-color);
+  border-radius: 50px;
+  visibility: hidden;
+
+
+}
+*::-webkit-scrollbar-thumb:hover{
+
+  background-color: var(--main-purple);
+}
+
+.inactive{
+  display: none;
+}
+
+/** ACTIVAR CUANDO NO SE USE EN html */
+/* img{
+  width: 150px;
+  height: 225px;
+} */
+
+
+html{
+  font-size: 62.5%;
+  font-family: 'Roboto', sans-serif;
+  color: var(--text-color);
+  border-color: var(--main-purple);
+}
+body{
+  background-color: white;
+}
+ul{
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+footer{
+  background-color: var(--main-purple);
+  color: white;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  
+}
+button{
+  padding: 3px;
+  border: 0.8px solid var(--text-color);
+  background-color: var(--text-color);
+  color: white;
+}
+footer p{
+  font-size: 1.2rem;
+}
+footer i{
+  font-size: 1.8rem;
+  transition-duration: 400ms;
+}
+footer i:hover{
+  text-shadow: rgba(255, 255, 255, 0.25) 0px 14px 28px, rgba(255, 255, 255, 0.22) 0px 10px 10px;
+  font-size: 2.2rem;
+}
+#body-grid{
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows:  150px 1fr 80px;
+  grid-template-columns: 100%;
+  font-size: 1.2rem;
+}
+a{
+  text-decoration: none;
+  color: white;
+}
+
+.categorie--square{
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  background-color: var(--romance-color);
+}
+.categorie--grid{
+  display: grid;
+
+}
+img{
+  border-radius: 5px;
+}
+/** HEADER STYLES */
+.header-arrow{
+  font-size: 2rem;
+}
+header, main{
+  margin-left: 24px;
+}
+header{
+  margin-top: 50px;
+}
+main{
+  margin-top: 25px;
+}
+.header--searchbar-container{
+  margin-top: 16px;
+  display: flex;
+}
+.searchbar{
+  padding: 5px;
+  background-color: var(--purple-soft);
+  border: none;
+  color: var(--main-purple);
+  border-radius: 6px 0 0 6px;
+  width: 200px;
+  padding-left: 10px;
+}
+.searchbar:focus-visible{
+  outline: -webkit-focus-ring-color auto 1px;
+  outline-color: var(--text-color);
+}
+.searchbar--btn{
+  background-color: var(--text-color);
+  padding: 8px;
+  cursor: pointer;
+  color: white;
+  transition-duration: 300ms;
+  border-radius: 0 6px 6px 0;
+}
+button:hover{
+  background-color: var(--main-purple);
+}
+.header-tittle{
+  font-size: 2.4rem;
+  font-weight: 800;
+}
+/** END OF HEADER STYLES */     
+
+/** TRENDING STYLES */
+.trending--header{
+  display: flex;
+  justify-content: space-between;
+  margin-right: 15px;
+  margin-bottom: 10px;
+}
+h2{
+  font-size: 2rem;
+}
+.trending-header--tittle{
+  margin: auto 0;
+}
+.trending-header--btn{
+  padding: 7px 10px;
+  border-radius: 10px;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+.trending--content{
+  display: flex;
+  gap: 15px;
+  height: 260px;
+  align-items: center;
+overflow-x: scroll;
+overscroll-behavior-x: contain;
+scroll-snap-type: x proximity;
+margin-bottom: 25px;
+}
+.trending--content::-webkit-scrollbar{
+  visibility: inherit;
+  margin-left: 30px;
+}
+.trending--content::-webkit-scrollbar-thumb{
+  visibility: inherit;
+  cursor: pointer;
+}
+.trending-content-images{
+  scroll-snap-align: center;
+
+}
+/** ENDING OF TRENDING STYLES */
+
+/** CATEGORIES STYLES */
+.categorie--grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(128px,1fr));
+  grid-auto-rows: 35px;
+  margin: 15px 0;
+}
+.categories{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+
+}
+.categorie--square{
+  transition-duration: 200ms;
+
+}
+.categorie--square:hover{
+  width: 50%;
+  height: 105%;
+}
+#categorie1{
+background-color: var(--action-color);
+}
+#categorie2{
+background-color: var(--romance-color);
+}
+#categorie3{
+  background-color: var(--adventure-color);
+}
+#categorie4{
+background-color: var(--musical-color);
+}
+#categorie5{
+background-color: var(--comedy-color);
+}
+#categorie6{
+background-color: var(--drama-color);
+}
+/** ENDING OF CATEGORIES STYLES */
