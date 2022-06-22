@@ -8,11 +8,31 @@
   --musical-color:#B7EAC5;
   --comedy-color: #A2EEE5;
   --drama-color:#8EA2EA;
+  --id28 :  #f09d9d; 
+  --id12 :  #ee99ab; 
+  --id16 :  #e796ba; 
+  --id35 :  #da97ca; 
+  --id80 :  #c799d8; 
+  --id99 :  #ae9de3 ;
+  --id18 :  #8ea2ea; 
+  --id10751 :  #b7eac5; 
+  --id14 :  #bae7b7; 
+  --id36 :  #c1e4a8; 
+  --id27 :  #cadf99; 
+  --id10402 :  #d5da8b; 
+  --id9648 :  #e1d37f; 
+  --id10749 :  #eecc75; 
+  --id878 :  #cad297; 
+  --id10770 :  #afe3bb; 
+  --id53 :  #68937e; 
+  --id10752 :  #6b9d8f; 
+  --id37 :  #4b7973; 
 }
 *{
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  transition-duration: 300ms;
 }
 *::-webkit-scrollbar{
   background-color: var(--purple-soft);
@@ -34,7 +54,7 @@
 }
 
 .inactive{
-  display: none;
+  display: none !important;
 }
 
 /** ACTIVAR CUANDO NO SE USE EN html */
@@ -98,15 +118,9 @@ a{
   color: white;
 }
 
-.categorie--square{
-  width: 30px;
-  height: 30px;
-  border-radius: 5px;
-  background-color: var(--romance-color);
-}
 .categorie--grid{
   display: grid;
-
+  
 }
 img{
   border-radius: 5px;
@@ -114,14 +128,21 @@ img{
   height: 225px;
 }
 /** HEADER STYLES */
-.header-arrow{
-  font-size: 2rem;
+.header-arrow i{
+  font-size: 2.6rem;
+  position: absolute;
+  top: 20px;
+  left: 25px;
+  cursor: pointer;
+  color: black;
 }
-header, main{
-  margin-left: 24px;
+.header-arrow i:hover{
+  font-size: 2.8rem;
+  text-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
-header{
-  margin-top: 50px;
+.main-header{
+  padding-left: 24px;
+  padding-top: 20px;
 }
 main{
   margin-top: 25px;
@@ -161,6 +182,9 @@ button:hover{
 /** END OF HEADER STYLES */     
 
 /** TRENDING STYLES */
+.main--trending-container{
+  margin-left: 25px;
+}
 .trending--header{
   display: flex;
   justify-content: space-between;
@@ -207,6 +231,9 @@ margin-bottom: 25px;
 /** ENDING OF TRENDING STYLES */
 
 /** CATEGORIES STYLES */
+.main--categories-container{
+  margin-left: 25px;
+}
 .categorie--grid{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(128px,1fr));
@@ -218,7 +245,6 @@ margin-bottom: 25px;
   align-items: center;
   gap: 5px;
   cursor: pointer;
-
 }
 .categorie--square{
   transition-duration: 200ms;
@@ -228,22 +254,101 @@ margin-bottom: 25px;
   width: 50%;
   height: 105%;
 }
-#categorie1{
-background-color: var(--action-color);
+.categorie--square{
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  background-color: var(--idColor);
 }
-#categorie2{
-background-color: var(--romance-color);
-}
-#categorie3{
-  background-color: var(--adventure-color);
-}
-#categorie4{
-background-color: var(--musical-color);
-}
-#categorie5{
-background-color: var(--comedy-color);
-}
-#categorie6{
-background-color: var(--drama-color);
-}
+#id28 { --idColor: #f09d9d; }
+#id12 { --idColor: #ee99ab; }
+#id16 { --idColor: #e796ba; }
+#id35 { --idColor: #da97ca; }
+#id80 { --idColor: #c799d8; }
+#id99 { --idColor: #ae9de3 ;}
+#id18 { --idColor: #8ea2ea; }
+#id10751 { --idColor: #b7eac5; }
+#id14 { --idColor: #bae7b7; }
+#id36 { --idColor: #c1e4a8; }
+#id27 { --idColor: #cadf99; }
+#id10402 { --idColor: #d5da8b; }
+#id9648 { --idColor: #e1d37f; }
+#id10749 { --idColor: #eecc75; }
+#id878 { --idColor: #cad297; }
+#id10770 { --idColor: #afe3bb; }
+#id53 { --idColor: #68937e; }
+#id10752 { --idColor: #6b9d8f; }
+#id37 { --idColor: #4b7973; }
 /** ENDING OF CATEGORIES STYLES */
+
+/* * GENERIC LIST STYLES */
+.genericList-container{
+  display: flex;
+  flex-direction: column;
+}
+.genericList-img__container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(50px,150px));
+  margin: 0 5px;
+  justify-content: space-evenly;
+  justify-items: center;
+  gap: 10px;
+}
+#genericList-btn{
+  margin: 10px auto;
+}
+
+/* * CATEGORY HEADER */
+.header--tittle__category{
+  width: 100%;
+  height: 100%;
+  background: rgb(255,255,255);
+background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(9,9,121,0.7461024498886415) 100%, rgba(0,212,255,1) 100%);
+display: flex;
+justify-content: center;
+align-items: center;
+color: black;
+}
+.header-tittle{
+  margin-top: 40px;
+}
+
+/* * BACKGROUND IMG */
+.header-movie--background{
+  width: 100%;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header-movie--background::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 250px;
+  background-image: url("https://image.tmdb.org/t/p/w300/9Gtg2DzBhmYamXBS1hKAhiwbBKS.jpg");
+  background-repeat: no-repeat;
+  z-index: -1;
+  background-size: cover;
+  filter: blur(1.5px);
+}
+.movieDetail-container{
+  padding-top: 90px;
+  color: white;
+  z-index: -1;
+}
+.background-black{
+  background-color: #292a2d;
+}
+.movieDetail-container .noHover{
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  background-color: var(--idColor);
+}
+.movie-img--shadow{
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  cursor: auto;
+}
+
