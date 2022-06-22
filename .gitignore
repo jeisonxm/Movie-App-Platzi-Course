@@ -126,5 +126,3 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-# private.js [API_KEY]
-src/private.js
