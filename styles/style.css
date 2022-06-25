@@ -245,6 +245,7 @@ margin-bottom: 25px;
   align-items: center;
   gap: 5px;
   cursor: pointer;
+
 }
 .categorie--square{
   transition-duration: 200ms;

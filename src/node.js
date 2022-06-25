@@ -11,6 +11,7 @@ const header_tittle__category = $("#category-tittle");
 const header_category_container = $(".header--tittle__category");
 //? search bar
 const header_searchbar_container = $(".header--searchbar-container");
+const searchbtn = $("#searchBTN");
 //? movie backgound
 const movie_background = $(".header-movie--background");
 
