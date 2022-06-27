@@ -129,12 +129,21 @@ img{
 }
 /** HEADER STYLES */
 .header-arrow i{
-  font-size: 2.6rem;
-  position: absolute;
+  font-size: 2.5rem;
+  position: fixed;
   top: 20px;
   left: 25px;
   cursor: pointer;
   color: black;
+  -webkit-text-stroke-width: 0.1px;
+    -webkit-text-stroke-color: white;
+}
+
+
+.header-arrow--white i{
+  color: white;
+  -webkit-text-stroke-width: 0.1px;
+  -webkit-text-stroke-color: rgb(0, 0, 0);
 }
 .header-arrow i:hover{
   font-size: 2.8rem;

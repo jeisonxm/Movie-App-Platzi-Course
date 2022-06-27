@@ -63,6 +63,8 @@ function moviePage() {
 
   console.log("movieee");
   header_arrow.classList.remove("inactive");
+  header_arrow.classList.add("header-arrow--white");
+
   trendingPreviewMoviesContainer.classList.add("inactive");
   main_category_container.classList.add("inactive");
   header_tittle_container.classList.add("inactive");
@@ -111,6 +113,13 @@ function homePage() {
   header_tittle_container.classList.remove("inactive");
   header_category_container.classList.add("inactive");
   header_searchbar_container.classList.remove("inactive");
+
+  header_arrow.classList.add("inactive");
+  movieDetailContainer.classList.add("inactive");
+  movie_background.classList.add("inactive");
+  body.classList.remove("background-black");
+  footer.style.backgroundColor = "var(--main-purple)";
+  header_arrow.classList.remove("header-arrow--white");
 
   console.log("homee");
   getCategoriesgPreview();
