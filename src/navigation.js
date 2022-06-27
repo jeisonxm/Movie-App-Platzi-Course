@@ -4,10 +4,9 @@ showMore_btn.addEventListener("click", () => {
 header_arrow.addEventListener("click", () => {
   location.hash = "home";
 });
-searchbtn.addEventListener("click", () => {
-  location.hash = "search=";
+header_searchbar_container.addEventListener("submit", () => {
+  location.hash = `search=${searchbar.value.trim()}`;
 });
-
 window.addEventListener("DOMContentLoaded", navigation, false);
 window.addEventListener("hashchange", navigation, false);
 function navigation() {
@@ -27,8 +26,6 @@ function navigation() {
 }
 
 function trendsPage() {
-  goTop();
-
   console.log("trendss");
   header_arrow.classList.remove("inactive");
   trendingPreviewMoviesContainer.classList.add("inactive");
@@ -37,11 +34,12 @@ function trendsPage() {
   header_tittle_container.classList.add("inactive");
   header_category_container.classList.remove("inactive");
   header_searchbar_container.classList.add("inactive");
+
+  getTrendingMovies();
+  goTop();
 }
 
 function searchPage() {
-  goTop();
-
   header_category_container.classList.add("inactive");
   genericListContainer.classList.add("inactive");
 
@@ -50,11 +48,15 @@ function searchPage() {
   trendingPreviewMoviesContainer.classList.add("inactive");
   main_category_container.classList.add("inactive");
   genericListContainer.classList.remove("inactive");
+
+  const [_, name] = location.hash.split("=");
+  const query = name.replace("%20", "-");
+  searchMovie(query);
+
+  goTop();
 }
 
 function moviePage() {
-  goTop();
-
   header_category_container.classList.add("inactive");
   genericListContainer.classList.add("inactive");
   genericListContainer.classList.add("inactive");
@@ -74,10 +76,10 @@ function moviePage() {
   square_category.classList.add("noHover");
   categories.style.cursor = "initial";
   movieDetail_img.classList.add("movie-img--shadow");
+  goTop();
 }
 
 function categoryPage() {
-  goTop();
   console.log("categoriess");
   header_arrow.classList.remove("inactive");
   trendingPreviewMoviesContainer.classList.add("inactive");
@@ -98,11 +100,10 @@ function categoryPage() {
   categoryNameWithSpaces = decodeURI(categoryName);
   getMoviesByCategory(categoryID);
   header_tittle__category.innerHTML = categoryNameWithSpaces;
+  goTop();
 }
 
 function homePage() {
-  goTop();
-
   header_arrow.classList.add("inactive");
   trendingPreviewMoviesContainer.classList.remove("inactive");
   main_category_container.classList.remove("inactive");
@@ -114,4 +115,5 @@ function homePage() {
   console.log("homee");
   getCategoriesgPreview();
   getTrendingMoviesPreview();
+  goTop();
 }

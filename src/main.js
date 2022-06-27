@@ -26,21 +26,22 @@ function placeImages(data, container) {
     data;
   });
 }
+
+function showMore(movies, container) {
+  genericList_btn.classList.remove("inactive");
+  const restOfMovies = movies.splice(8, movies.length - 8);
+  placeImages(movies, container);
+  genericList_btn.addEventListener("click", () => {
+    placeImages(movies.concat(restOfMovies), container);
+    genericList_btn.classList.add("inactive");
+  });
+}
+
 function goTop() {
   window.scrollTo(0, 0);
 }
-//                                                                     //
-
-async function getTrendingMoviesPreview() {
-  const { data } = await api(`trending/movie/day`);
-  const movies = data.results;
-  placeImages(movies, trendingPreviewMoviesIMGContainer);
-}
-
-async function getCategoriesgPreview() {
-  const { data } = await api(`genre/movie/list`);
-  const categories = data.genres;
-  previewCategoriesContainer.innerHTML = "";
+function placeCategories(categories, container) {
+  container.innerHTML = "";
 
   categories.forEach((category) => {
     const categoryContainer = document.createElement("div");
@@ -58,8 +59,29 @@ async function getCategoriesgPreview() {
 
     categoryTittle.appendChild(categoryTittleText);
     categoryContainer.append(square, categoryTittle);
-    previewCategoriesContainer.appendChild(categoryContainer);
+    container.appendChild(categoryContainer);
   });
+}
+//                                                                     //
+
+async function getTrendingMoviesPreview() {
+  const { data } = await api(`trending/movie/day`);
+  const movies = data.results;
+  movies.splice(6, movies.length - 6);
+  placeImages(movies, trendingPreviewMoviesIMGContainer);
+}
+
+async function getTrendingMovies() {
+  const { data } = await api(`trending/movie/day`);
+  const movies = data.results;
+  header_tittle__category.innerHTML = "Trending";
+  showMore(movies, genericList_imgContainer);
+}
+
+async function getCategoriesgPreview() {
+  const { data } = await api(`genre/movie/list`);
+  const categories = data.genres;
+  placeCategories(categories, previewCategoriesContainer);
 }
 
 async function getMoviesByCategory(id) {
@@ -69,5 +91,15 @@ async function getMoviesByCategory(id) {
     },
   });
   const movies = data.results;
-  placeImages(movies, genericList_imgContainer);
+  showMore(movies, genericList_imgContainer);
+}
+
+async function searchMovie(query) {
+  const { data } = await api(`search/movie`, {
+    params: {
+      query,
+    },
+  });
+  const movies = data.results;
+  showMore(movies, genericList_imgContainer);
 }
