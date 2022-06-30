@@ -45,7 +45,8 @@ function trendsPage() {
 function searchPage() {
   header_category_container.classList.add("inactive");
   genericListContainer.classList.add("inactive");
-
+  header_tittle_container.classList.remove("inactive");
+  header_searchbar_container.classList.remove("inactive");
   console.log("searchh");
   header_arrow.classList.remove("inactive");
   trendingPreviewMoviesContainer.classList.add("inactive");
@@ -56,6 +57,11 @@ function searchPage() {
   const query = name.replace("%20", "-");
   searchMovie(query);
 
+  movieDetailContainer.classList.add("inactive");
+  movie_background.classList.add("inactive");
+  body.classList.remove("background-black");
+  footer.style.backgroundColor = "var(--main-purple)";
+  header_arrow.classList.remove("header-arrow--white");
   goTop();
 }
 
