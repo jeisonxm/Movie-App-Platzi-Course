@@ -38,6 +38,12 @@ function trendsPage() {
   header_category_container.classList.remove("inactive");
   header_searchbar_container.classList.add("inactive");
 
+  movieDetailContainer.classList.add("inactive");
+  movie_background.classList.add("inactive");
+  body.classList.remove("background-black");
+  footer.style.backgroundColor = "var(--main-purple)";
+  header_arrow.classList.remove("header-arrow--white");
+
   getTrendingMovies();
   goTop();
 }
