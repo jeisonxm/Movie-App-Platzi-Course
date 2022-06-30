@@ -1,8 +1,11 @@
 showMore_btn.addEventListener("click", () => {
   location.hash = "trends";
 });
-header_arrow.addEventListener("click", () => {
+homeIcon.addEventListener("click", () => {
   location.hash = "home";
+});
+backIcon.addEventListener("click", () => {
+  history.back();
 });
 header_searchbar_container.addEventListener("submit", () => {
   location.hash = `search=${searchbar.value.trim()}`;
@@ -78,6 +81,10 @@ function moviePage() {
   square_category.classList.add("noHover");
   categories.style.cursor = "initial";
   movieDetail_img.classList.add("movie-img--shadow");
+
+  const [_, movieId] = location.hash.split("=");
+  getMovieById(movieId);
+
   goTop();
 }
 
@@ -90,6 +97,12 @@ function categoryPage() {
   header_tittle_container.classList.add("inactive");
   header_category_container.classList.remove("inactive");
   header_searchbar_container.classList.add("inactive");
+
+  movieDetailContainer.classList.add("inactive");
+  movie_background.classList.add("inactive");
+  body.classList.remove("background-black");
+  footer.style.backgroundColor = "var(--main-purple)";
+  header_arrow.classList.remove("header-arrow--white");
 
   const [_, categoryData] = location.hash.split("=");
   const [categoryID, categoryName] = categoryData.split("-");

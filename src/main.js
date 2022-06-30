@@ -14,6 +14,10 @@ function placeImages(data, container) {
   data.forEach((movie) => {
     const movieContainer = document.createElement("div");
     movieContainer.classList.add("movie-container");
+    movieContainer.addEventListener("click", () => {
+      location.hash = `#movie=${movie.id}`;
+    });
+
     const movieImg = document.createElement("img");
     movieImg.classList.add("movie-img", "trending-content-images");
     movieImg.setAttribute("alt", movie.title);
@@ -78,6 +82,21 @@ async function getTrendingMovies() {
   showMore(movies, genericList_imgContainer);
 }
 
+async function getMovieById(id) {
+  const { data } = await api(`movie/${id}`);
+  const movieImgURL = `https://image.tmdb.org/t/p/w400${data.poster_path}`;
+  movieDetail_score.textContent = data.vote_average;
+  movieDetail_tittle.textContent = data.title;
+  movieDetail_description.textContent = data.overview;
+  movieDetailImg.setAttribute("src", movieImgURL);
+
+  movieDetailBackgroundImg.style.background = `linear-gradient(0deg, rgba(255,255,255,0.5609594179468662) 0%, rgba(0,0,0,0.7461024498886415) 80%),url(${movieImgURL})`;
+
+  console.log(data.poster_path);
+  placeCategories(data.genres, movieDetail_categorie_container);
+  getRelatedMoviesById(id);
+}
+
 async function getCategoriesgPreview() {
   const { data } = await api(`genre/movie/list`);
   const categories = data.genres;
@@ -102,4 +121,10 @@ async function searchMovie(query) {
   });
   const movies = data.results;
   showMore(movies, genericList_imgContainer);
+}
+
+async function getRelatedMoviesById(id) {
+  const { data } = await api(`movie/${id}/similar`);
+  const relatedMovies = data.results;
+  placeImages(relatedMovies, movieDetail_related);
 }

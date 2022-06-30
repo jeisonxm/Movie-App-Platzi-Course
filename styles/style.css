@@ -130,15 +130,20 @@ img{
 /** HEADER STYLES */
 .header-arrow i{
   font-size: 2.5rem;
-  position: fixed;
-  top: 20px;
-  left: 25px;
+  opacity: 60%;
   cursor: pointer;
   color: black;
   -webkit-text-stroke-width: 0.1px;
-    -webkit-text-stroke-color: white;
+    -webkit-text-stroke-color: rgb(0, 0, 0);
 }
-
+.header-arrow{
+  display: flex;
+  position: fixed;
+  width: 85%;
+  top: 20px;
+  left: 25px;
+  justify-content: space-between;
+}
 
 .header-arrow--white i{
   color: white;
@@ -146,6 +151,7 @@ img{
   -webkit-text-stroke-color: rgb(0, 0, 0);
 }
 .header-arrow i:hover{
+  opacity: 100%;
   font-size: 2.8rem;
   text-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
@@ -261,8 +267,10 @@ margin-bottom: 25px;
 
 }
 .categorie--square:hover{
-  width: 50%;
-  height: 105%;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+.categorie--tittle{
+  font-size: 1.6rem;
 }
 .categorie--square{
   width: 30px;
@@ -335,18 +343,24 @@ color: black;
   justify-content: center;
   align-items: center;
 }
-.header-movie--background::after{
-  content: "";
+.header-movie--background-img{
   position: absolute;
   top: 0;
   width: 100%;
   height: 250px;
-  background-image: url("https://image.tmdb.org/t/p/w300/9Gtg2DzBhmYamXBS1hKAhiwbBKS.jpg");
+  background: url("https://image.tmdb.org/t/p/w300/9Gtg2DzBhmYamXBS1hKAhiwbBKS.jpg");
   background-repeat: no-repeat;
   z-index: -1;
   background-size: cover;
   filter: blur(1.5px);
 }
+.relatedMovies-container::-webkit-scrollbar{
+  display: none;
+}
+#backgroundImg{
+  width: 160px;height: 240px;
+}
+
 .movieDetail-container{
   padding-top: 90px;
   color: white;
@@ -366,3 +380,49 @@ color: black;
   cursor: auto;
 }
 
+/* * MOVIE DETAIL PAGE */
+
+.movieDetail-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+.fa-star{
+  margin-left: 5px;
+  color: yellow;
+}
+.rate{
+  display: block;
+  display: flex;
+}
+.movieDetail-container{
+  padding-left: 20px;
+  padding-right: 15px;
+}
+.movieDetail-container .categorie--tittle{
+  font-size: 1.3rem;
+}
+.movieDetail-container .categorie--square{
+  width: 25px;
+  height: 25px;
+}
+
+.movieDetail-container .categorie--grid{
+  grid-template-columns: repeat(auto-fit, minmax(80px,1fr));
+}
+.movieDetail-container img{
+  width: 133px;
+  height: 200px;
+}
+.movieDetail-tittle{
+  font-size: 2.4rem;
+font-weight: 900;
+}
+.movieDetail-description{
+  margin: 5px 0;
+  font-size: 1.3rem;
+}
+.relatedMovies-container{
+  height: 225px;
+}

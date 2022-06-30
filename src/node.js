@@ -33,6 +33,8 @@ const genericListContainer = $(".genericList-container");
 const genericList_btn = $("#genericList-btn");
 const genericList_imgContainer = $(".genericList-img__container");
 //! MOVIE DETAIL
+const movieDetailBackgroundImg = $(".header-movie--background-img");
+const movieDetailImg = $("#backgroundImg");
 const movieDetailContainer = $("#movieDetail");
 const movieDetail_tittle = $(".movieDetail-tittle");
 const movieDetail_score = $(".movieDetail-score");
@@ -51,3 +53,7 @@ const footer = $("footer");
 const square_category = $(".categorie--square");
 const categories = $(".categories");
 const movieDetail_img = $(".movie-img");
+
+//! icons
+const backIcon = $(".fa-angle-left");
+const homeIcon = $(".fa-house");

@@ -25,10 +25,12 @@
       <header>
         <!-- ! MOVIE BACKGOUND HEADER FIX -->
         <div class="header-movie--background inactive">
+          <div class="header-movie--background-img"></div>
           <div class="movie-container">
             <img
+              id="backgroundImg"
               class="trending-content-images movie-img"
-              src="https://image.tmdb.org/t/p/w300/9Gtg2DzBhmYamXBS1hKAhiwbBKS.jpg"
+              src=""
               alt=""
               width="150"
               height="225"
@@ -43,6 +45,7 @@
         </div>
         <span class="header-arrow inactive"
           ><i class="fa-solid fa-angle-left"></i
+          ><i class="fa-solid fa-house"></i
         ></span>
         <!-- ! HOME HEADER -->
         <section class="main-header">
@@ -114,8 +117,13 @@
 
         <!--! MOVIE DETAIL CONTAINER  -->
         <section class="movieDetail-container inactive" id="movieDetail">
-          <h1 class="movieDetail-tittle">Movie Tittle</h1>
-          <span class="movieDetail-score">7.6</span>
+          <article class="movieDetail-header">
+            <h1 class="movieDetail-tittle">Movie Tittle</h1>
+            <div class="rate">
+              <span class="movieDetail-score">7.6</span
+              ><i class="fa-solid fa-star"></i>
+            </div>
+          </article>
           <p class="movieDetail-description">
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
             Voluptatibus, velit quo totam itaque ea quia, eum, assumenda alias
@@ -123,15 +131,17 @@
             architecto atque ullam perferendis. Ad, fugit?
           </p>
 
-          <article class="movieDetail-categorie-container">
+          <article
+            class="movieDetail-categorie-container categorie--grid noAnimation"
+          >
             <div class="categories">
               <div class="categorie--square" id="categorie1"></div>
               <h3 class="categorie--tittle">Action</h3>
             </div>
           </article>
 
-          <article class="relatedMovies-container">
-            <h2 class="relatedMovies-tittle">Related Movies</h2>
+          <h2 class="relatedMovies-tittle">Related Movies</h2>
+          <article class="relatedMovies-container trending--content">
             <div class="relatedMovies-scrollContainer">
               <div class="movie-container">
                 <img
