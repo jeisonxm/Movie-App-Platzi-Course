@@ -43,7 +43,7 @@ function trendsPage() {
   body.classList.remove("background-black");
   footer.style.backgroundColor = "var(--main-purple)";
   header_arrow.classList.remove("header-arrow--white");
-
+  header_category_container.style.background = `linear-gradient(0deg, rgba(255,255,255,1) 0%, var( --text-color ) 100%)`;
   getTrendingMovies();
   goTop();
 }
@@ -118,7 +118,7 @@ function categoryPage() {
 
   const [_, categoryData] = location.hash.split("=");
   const [categoryID, categoryName] = categoryData.split("-");
-
+  console.log(categoryID);
   //* Another solutions that came to my mind
   // const getTittleWithSpaces = categoryName.split("%20");
   // const categoryNameWithSpaces = getTittleWithSpaces.join(" ");
@@ -127,6 +127,7 @@ function categoryPage() {
   categoryNameWithSpaces = decodeURI(categoryName);
   getMoviesByCategory(categoryID);
   header_tittle__category.innerHTML = categoryNameWithSpaces;
+  header_category_container.style.background = `linear-gradient(0deg, rgba(255,255,255,1) 0%, var(--id${categoryID} ) 100%)`;
   goTop();
 }
 

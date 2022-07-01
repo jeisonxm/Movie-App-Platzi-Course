@@ -110,6 +110,7 @@ async function getMoviesByCategory(id) {
     },
   });
   const movies = data.results;
+
   showMore(movies, genericList_imgContainer);
 }
 
